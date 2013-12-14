@@ -174,7 +174,7 @@ authorize {
 	#  is meant to mirror the "users" file.
 	#
 	#  See "Authorization Queries" in sql.conf
-#	sql
+ 	sql
 
 	#
 	#  If you are using /etc/smbpasswd, and are also doing
@@ -451,7 +451,7 @@ session {
 
 	#
 	#  See "Simultaneous Use Checking Queries" in sql.conf
-#	sql
+ 	sql
 }
 
 
