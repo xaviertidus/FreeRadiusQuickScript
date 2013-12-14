@@ -31,7 +31,7 @@ service mysqld start
 # add our radius database and permissions for the radius user.
 mysql -uroot << EOFMYSQL
 CREATE DATABASE radius;
-GRANT ALL PRIVILEGES ON radius.* TO radius@localhost IDENTIFIED BY "radpass";
+GRANT ALL PRIVILEGES ON radius.* TO radius@localhost IDENTIFIED BY "$RAD_MYSQL_USER_PASS";
 flush privileges;
 use radius;
 SOURCE /etc/raddb/sql/mysql/schema.sql
