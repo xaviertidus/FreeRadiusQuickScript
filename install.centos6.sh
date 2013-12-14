@@ -10,6 +10,12 @@
 # @author Xavier Hutchinson
 #
 (
+clear
+echo "#######################################"
+echo "FreeRadius Install Script - GPLv2"
+echo "Created 2013/12/14 by Xavier Hutchinson"
+echo "Shameless plug: http://xaviertidus.com"
+echo "#######################################"
 
 #VAR Declaration
 DEFAULT_RAD_MYSQL_USER_PASS="radpass"
