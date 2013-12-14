@@ -9,12 +9,18 @@
 # @since FreeRadiusQuickScript 1.0
 # @author Xavier Hutchinson
 #
-
 (
 
 #VAR Declaration
-RAD_MYSQL_USER_PASS="radpass"
-RAD_AUTH_REQ_SECRET="testing123"
+DEFAULT_RAD_MYSQL_USER_PASS="radpass"
+DEFAULT_RAD_AUTH_REQ_SECRET="testing123"
+
+#VAR Prompting
+read -e -p "Enter a password for FreeRadius to use to connect to MySQL [$DEFAULT_RAD_MYSQL_USER_PASS]: " FR_MYSQL_PWD
+RAD_MYSQL_USER_PASS=${FR_MYSQL_PWD:-$DEFAULT_RAD_MYSQL_USER_PASS}
+
+read -e -p "Enter a password for localhost to use to connect to FreeRadius [$DEFAULT_RAD_AUTH_REQ_SECRET]: " LH_FR_PWD
+RAD_AUTH_REQ_SECRET=${LH_FR_PWD:-$DEFAULT_RAD_AUTH_REQ_SECRET}
 
 #Let's go!
 yum install freeradius freeradius-mysql freeradius-utils mysql-server -y
