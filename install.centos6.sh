@@ -44,7 +44,7 @@ GRANT ALL PRIVILEGES ON radius.* TO radius@localhost IDENTIFIED BY "radpass";
 flush privileges;
 use radius;
 SOURCE /etc/raddb/sql/mysql/schema.sql
-INSERT INTO `radcheck` (`id`, `username`, `attribute`, `op`, `value`) VALUES (1,'myusername','User-Password',':=','mypassword');
+INSERT INTO radcheck (id, username, attribute, op, value) VALUES (1,'myusername','User-Password',':=','mypassword');
 exit
 EOFMYSQL
 
