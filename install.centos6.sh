@@ -11,11 +11,11 @@
 #
 (
 clear
-echo "#######################################"
-echo "FreeRadius Install Script - GPLv2"
+echo "############################################"
+echo "FreeRadius Install Script - for CentOS6"
 echo "Created 2013/12/14 by Xavier Hutchinson"
-echo "Shameless plug: http://xaviertidus.com"
-echo "#######################################"
+echo "Shameless plug: http://xaviertidus.com "
+echo "############################################"
 
 #VAR Declaration
 DEFAULT_RAD_MYSQL_USER_PASS="radpass"
