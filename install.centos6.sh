@@ -20,7 +20,6 @@ echo "Before we begin I need just two peices of information from you:"
 read "Please enter a password for freeradius to use to connect to MySQL [radpass]:" IN_RAD_MYSQL_USER_PASS
 read "Please enter a password for localhost to attempt to validate logins for users against your radius [testing123]:" IN_RAD_AUTH_REQ_SECRET
 
-if len
 
 #Let's go!
 yum install freeradius freeradius-mysql freeradius-utils mysql-server -y
