@@ -16,19 +16,19 @@
 RAD_MYSQL_USER_PASS="radpass"
 RAD_AUTH_REQ_SECRET="testing123"
 
-echo "Before we begin I need just two peices of information from you:"
-echo "Please enter a password for freeradius to use to connect to MySQL [radpass]:" 
-read IN_RAD_MYSQL_USER_PASS
-echo "Please enter a password for localhost to attempt to validate logins for users against your radius [testing123]:" 
-read IN_RAD_AUTH_REQ_SECRET
+#echo "Before we begin I need just two peices of information from you:"
+#echo "Please enter a password for freeradius to use to connect to MySQL [radpass]:" 
+#read IN_RAD_MYSQL_USER_PASS
+#echo "Please enter a password for localhost to attempt to validate logins for users against your radius [testing123]:" 
+#read IN_RAD_AUTH_REQ_SECRET
 
-case "$IN_RAD_MYSQL_USER_PASS" in
-  "") IN_RAD_AUTH_REQ_SECRET=$IN_RAD_AUTH_REQ_SECRET;;
-esac
+#case "$IN_RAD_MYSQL_USER_PASS" in
+#  "") IN_RAD_AUTH_REQ_SECRET=$IN_RAD_AUTH_REQ_SECRET;;
+#esac
 
-case "$IN_RAD_AUTH_REQ_SECRET" in
-  "") IN_RAD_AUTH_REQ_SECRET=$IN_RAD_AUTH_REQ_SECRET;;
-esac
+#case "$IN_RAD_AUTH_REQ_SECRET" in
+#  "") IN_RAD_AUTH_REQ_SECRET=$IN_RAD_AUTH_REQ_SECRET;;
+#esac
 
 
 #Let's go!
