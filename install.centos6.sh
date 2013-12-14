@@ -16,21 +16,6 @@
 RAD_MYSQL_USER_PASS="radpass"
 RAD_AUTH_REQ_SECRET="testing123"
 
-#echo "Before we begin I need just two peices of information from you:"
-#echo "Please enter a password for freeradius to use to connect to MySQL [radpass]:" 
-#read IN_RAD_MYSQL_USER_PASS
-#echo "Please enter a password for localhost to attempt to validate logins for users against your radius [testing123]:" 
-#read IN_RAD_AUTH_REQ_SECRET
-
-#case "$IN_RAD_MYSQL_USER_PASS" in
-#  "") IN_RAD_AUTH_REQ_SECRET=$IN_RAD_AUTH_REQ_SECRET;;
-#esac
-
-#case "$IN_RAD_AUTH_REQ_SECRET" in
-#  "") IN_RAD_AUTH_REQ_SECRET=$IN_RAD_AUTH_REQ_SECRET;;
-#esac
-
-
 #Let's go!
 yum install freeradius freeradius-mysql freeradius-utils mysql-server -y
 
@@ -54,7 +39,7 @@ EOFMYSQL
 echo -e '\E[37;44m'"\033[1m Backing up '/etc/raddb/sql.conf' to '/etc/raddb/sql.conf.original'\033[0m"
 mv /etc/raddb/sql.conf /etc/raddb/sql.conf.original
 # configure this script's version of sql.conf
-#sed -i "s/FRQS-RAD_AUTH_REQ_SECRET/$RAD_AUTH_REQ_SECRET/g" "/opt/FreeRadiusQuickScript/sql.conf"
+sed -i -e 's/FRQS_RAD_MYSQL_USER_PASS/$RAD_MYSQL_USER_PASS/g' /opt/FreeRadiusQuickScript/sql.conf
 # get this script version
 echo -e '\E[37;44m'"\033[1m Writing our version of '/etc/raddb/sql.conf'\033[0m"
 mv /opt/FreeRadiusQuickScript/sql.conf /etc/raddb/sql.conf
@@ -87,6 +72,8 @@ mv /opt/FreeRadiusQuickScript/sites-available/inner-tunnel /etc/raddb/sites-avai
 # backup original
 echo -e '\E[37;44m'"\033[1m Backing up '/etc/raddb/clients.conf' to '/etc/raddb/clients.conf.original'\033[0m"
 mv /etc/raddb/clients.conf /etc/raddb/clients.conf.original
+# configure this script's version of sql.conf
+sed -i -e 's/FRQS_RAD_AUTH_REQ_SECRET/$RAD_AUTH_REQ_SECRET/g' /opt/FreeRadiusQuickScript/clients.conf
 # get this script version
 echo -e '\E[37;44m'"\033[1m Writing our version of '/etc/raddb/clients.conf'\033[0m"
 mv /opt/FreeRadiusQuickScript/clients.conf /etc/raddb/clients.conf
