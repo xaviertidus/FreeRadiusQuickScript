@@ -23,11 +23,11 @@ echo "Please enter a password for localhost to attempt to validate logins for us
 read IN_RAD_AUTH_REQ_SECRET
 
 case "$IN_RAD_MYSQL_USER_PASS" in
-  "") IN_RAD_AUTH_REQ_SECRET = $IN_RAD_AUTH_REQ_SECRET;;
+  "") IN_RAD_AUTH_REQ_SECRET=$IN_RAD_AUTH_REQ_SECRET;;
 esac
 
 case "$IN_RAD_AUTH_REQ_SECRET" in
-  "") IN_RAD_AUTH_REQ_SECRET = $IN_RAD_AUTH_REQ_SECRET;;
+  "") IN_RAD_AUTH_REQ_SECRET=$IN_RAD_AUTH_REQ_SECRET;;
 esac
 
 
@@ -54,7 +54,7 @@ EOFMYSQL
 echo -e '\E[37;44m'"\033[1m Backing up '/etc/raddb/sql.conf' to '/etc/raddb/sql.conf.original'\033[0m"
 mv /etc/raddb/sql.conf /etc/raddb/sql.conf.original
 # configure this script's version of sql.conf
-sed -i "s/FRQS-RAD_MYSQL_USER_PASS/$RAD_AUTH_REQ_SECRET/g" "/opt/FreeRadiusQuickScript/sql.conf\033[0m"
+sed -i "s/FRQS-RAD_MYSQL_USER_PASS/$RAD_AUTH_REQ_SECRET/g" "/opt/FreeRadiusQuickScript/sql.conf"
 # get this script version
 echo -e '\E[37;44m'"\033[1m Writing our version of '/etc/raddb/sql.conf'\033[0m"
 mv /opt/FreeRadiusQuickScript/sql.conf /etc/raddb/sql.conf
