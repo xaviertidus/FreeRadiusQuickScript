@@ -83,6 +83,9 @@ echo "Writing our version of '/etc/raddb/clients.conf'"
 mv /opt/clients.conf /etc/raddb/clients.conf
 
 ### FreeRadius
+# ensure FreeRadius starts automatically
+echo "Making sure FreeRadius will automatically start at boot"
+chkconfig radiusd on
 # start free radius
 echo "Starting FreeRadius"
 service radiusd restart
@@ -100,9 +103,4 @@ echo "############### IMPORTANT! ###############"
 echo "1) You need to secure your mysql installation now by running: /usr/bin/mysql_secure_installation If you need help with this see http://xaviertidus.com/?p=47 for more information"
 echo "2) A testing user was added to the radius database (username: myusername password: mypassword), don't forget to delete it when you are finished testing! It's a security risk. If you need help with this see http://xaviertidus.com/?p=49 for more information"
 echo "3) If you plan to have external servers authenticating against your new FreeRadius server, you need to add the appropriate entries in the /etc/raddb/clients.conf file. If you need help with this see http://xaviertidus.com/?p=45 for more information"
-
-
-
-
-
 ) 2>&1 | tee /var/log/FreeRadiusQuickScript-CentOS6-installer.log
