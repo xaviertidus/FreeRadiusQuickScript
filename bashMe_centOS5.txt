@@ -1,3 +1,6 @@
+wget http://packages.sw.be/rpmforge-release/rpmforge-release-0.5.2-2.el5.rf.i386.rpm
+rpm --import http://apt.sw.be/RPM-GPG-KEY.dag.txt
+rpm -K rpmforge-release-0.5.2-2.el5.rf.i386.rpm
+rpm -i rpmforge-release-0.5.2-2.el5.rf.i386.rpm
 yum install -y git
-cd /opt && git clone git://github.com/xaviertidus/FreeRadiusQuickScript.git
-cd FreeRadiusQuickScript && bash install.centos5.sh
+ 
